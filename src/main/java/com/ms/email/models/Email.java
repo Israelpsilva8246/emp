@@ -19,7 +19,7 @@ public class Email implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "email", length = 100, nullable = true)
+    @Column(name = "email", length = 100, nullable = false)
     private String email;
     @Column(name = "data_envio")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
