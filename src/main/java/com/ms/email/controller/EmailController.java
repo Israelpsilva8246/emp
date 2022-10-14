@@ -7,17 +7,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/api/email")
+@RequestMapping("/api/emails")
 public class EmailController {
 
     @Autowired
-    private EmailService emailService;
-
+    private EmailService service;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Email create(@RequestBody Email email) {
-        return emailService.create(email);
-
+        return service.create(email);
+    }
+    @GetMapping
+    public ResponseEntity<List<Email>> findAll() {
+        List<Email> list = service.findAll();
+        return ResponseEntity.ok().body(list);
     }
 }
