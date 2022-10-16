@@ -9,4 +9,6 @@ public interface EmailService {
     Email create(Email email);
 
     List<Email> findAll();
+
+    void deleteAll();
 }
